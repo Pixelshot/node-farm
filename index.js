@@ -2,8 +2,7 @@ const fs = require("fs");
 const http = require("http");
 const url = require("url");
 
-// We can choose any name for the module but because the function was originally written here,
-// we're gonna just going to give it the original name.
+// We can choose any name for module but because originally the function was written here, we're just going to use the same name.
 const replaceTemplate = require("./modules/replaceTemplate");
 
 const tempOverview = fs.readFileSync(
@@ -45,9 +44,9 @@ const server = http.createServer((req, res) => {
     const output = replaceTemplate(tempProduct, product);
     res.end(output);
 
-    // Api
+    // API
   } else if (pathname === "/api") {
-    // res.end() needs to send back in a string format therefore we need to let the browser know in strings format that it's about to receive JSON.
+    // res.end() needs to sent back in a string format hence why we're letting the browser know that it's about to receive JSON in strings format.
     // status code 200 means 'clear/good to go/everything is ok'.
     res.writeHead(200, {
       "Content-type": "application/json"
